@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { Inter } from "next/font/google";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// If loading a variable font, you don't need to specify the font weight
+const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,12 +20,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt_BR">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-background antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="pt_BR" className={inter.className}>
+      <body>{children}</body>
     </html>
   );
 }
