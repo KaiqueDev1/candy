@@ -60,7 +60,7 @@ const EggsCard: React.FC<EggsCardProps> = () => {
                             {egg.type}
                           </p>
                         </div>
-                        <div className="pt-2 flex justify-between items-center">
+                        <div className="flex items-center justify-between pt-2">
                           <p className="select-none text-xl font-semibold text-text">
                             <strong className="select-none text-lg font-semibold text-primary">
                               R$
