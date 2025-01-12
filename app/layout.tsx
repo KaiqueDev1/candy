@@ -1,9 +1,9 @@
+import React from 'react';
 import type { Metadata } from "next";
 import "./globals.css";
 
 import { Inter, Playwrite_AU_NSW } from "next/font/google";
 
-// If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
   display: "swap",
   variable: "--font-inter",
