@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import { Inter } from "next/font/google";
+import { Inter, Playwrite_AU_NSW } from "next/font/google";
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
-  subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
+});
+
+const playwrite = Playwrite_AU_NSW({
+  display: "swap",
+  variable: "--font-playwrite",
 });
 
 export const metadata: Metadata = {
@@ -20,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt_BR" className={inter.className}>
+    <html lang="pt_BR" className={`${inter.variable} ${playwrite.variable}`}>
       <body>{children}</body>
     </html>
   );

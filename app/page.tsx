@@ -3,12 +3,19 @@ import Header from "./components/header/header";
 import EggsCard from "./components/eggsCard";
 export default function Home() {
   return (
-    <div className="h-full w-full bg-background">
+    <div className="h-[926px] w-full bg-background">
       <Header />
-      <div className="flex items-center justify-center py-3">
-        <span className="text-2xl font-bold text-primary">Cardápio</span>
-      </div>
-      <EggsCard />
+
+      <EggsCard
+        id="some-id"
+        name="some-name"
+        description="some-description"
+        bark="some-bark"
+        price="some-price"
+        grams="some-grams"
+        ingredients="some-ingredients"
+        type="some-type"
+      />
     </div>
   );
 }
