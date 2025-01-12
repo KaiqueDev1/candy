@@ -1,10 +1,11 @@
-import React from 'react';
+import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 
 import { Inter, Playwrite_AU_NSW } from "next/font/google";
 
 const inter = Inter({
+  subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
