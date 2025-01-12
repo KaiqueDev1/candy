@@ -19,8 +19,8 @@ export default {
         shadow: "rgba(0, 0, 0, 0.7)",
       },
       fontFamily: {
-        inter: ['var(--font-roboto)'],
-        playwrite: ['var(--font-playwrite)'],
+        inter: ["var(--font-roboto)"],
+        playwrite: ["var(--font-playwrite)"],
       },
     },
   },
