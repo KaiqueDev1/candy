@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/carousel";
 import eggsData from "@/src/data/eggsData";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Plus } from "lucide-react";
 
 interface EggsCardProps {
   id: string;
@@ -26,8 +28,8 @@ const EggsCard: React.FC<EggsCardProps> = () => {
     <section className="flex w-full flex-col bg-background pl-2 pt-5">
       <div className="h-full w-full">
         <Carousel opts={{ align: "start" }} className="w-full">
-          <CarouselContent className="w-[220px]">
-            {eggsData.slice(0, 4).map((egg) => (
+          <CarouselContent className="w-[205px]">
+            {eggsData.map((egg) => (
               <CarouselItem
                 key={egg.id}
                 className="flex items-center justify-center bg-transparent md:basis-1/2 lg:basis-1/3"
@@ -44,23 +46,31 @@ const EggsCard: React.FC<EggsCardProps> = () => {
                         className="block w-full rounded-xl"
                       />
                       <div className="flex flex-col gap-2 pt-2">
-                        <h2 className="font-inter select-none text-xl font-bold text-[#dee2e6]">
+                        <h2 className="font-inter select-none text-xl font-bold text-text">
                           {egg.name}
                         </h2>
                         <div className="flex items-center justify-between">
-                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-[#dee2e6]">
+                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-text">
                             {egg.bark}
                           </p>
-                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-[#dee2e6]">
+                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-text">
                             {egg.grams}
                           </p>
-                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-[#dee2e6]">
+                          <p className="bg-third select-none rounded-md px-3 py-1 text-xs text-text">
                             {egg.type}
                           </p>
                         </div>
-                        <p className="select-none text-sm text-[#dee2e6]">
-                          {egg.price}
-                        </p>
+                        <div className="pt-2 flex justify-between items-center">
+                          <p className="select-none text-xl font-semibold text-text">
+                            <strong className="select-none text-lg font-semibold text-primary">
+                              R$
+                            </strong>{" "}
+                            {egg.price}
+                          </p>
+                          <Button className="bg-primary">
+                            <Plus size={20} className="text-background" />
+                          </Button>
+                        </div>
                       </div>
                     </CardContent>
                   </Card>
