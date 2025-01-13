@@ -1,8 +1,10 @@
+import eggImage from "../../public/image/egg.jpg";
+
 const eggsData = [
   {
     id: "E1",
     name: "Brigadeiro",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro tradicional com casca ao leite",
     bark: "100%",
     price: "0,00",
@@ -13,7 +15,7 @@ const eggsData = [
   {
     id: "E2",
     name: "Maracujá",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro de maracujá com casca ao leite",
     bark: "100%",
     price: "0,00",
@@ -24,7 +26,7 @@ const eggsData = [
   {
     id: "E3",
     name: "Prestigio",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Beijinho acompanhado de brigadeiro tradicional",
     bark: "100%",
     price: "0,00",
@@ -35,7 +37,7 @@ const eggsData = [
   {
     id: "E4",
     name: "Beijinho",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Beijinho com massa de coco, casca meia amarga",
     bark: "50%",
     price: "0,00",
@@ -46,7 +48,7 @@ const eggsData = [
   {
     id: "E5",
     name: "Sensação",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro tradicional com moranguinho",
     bark: "100%",
     price: "0,00",
@@ -57,7 +59,7 @@ const eggsData = [
   {
     id: "E6",
     name: "Óreo",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro de óreo com casca de chocolate branco",
     bark: "100%",
     price: "0,00",
@@ -68,7 +70,7 @@ const eggsData = [
   {
     id: "E7",
     name: "Kit Kat",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro tradicional e brigadeiro branco com Kit Kat",
     bark: "100%",
     price: "0,00",
@@ -79,7 +81,7 @@ const eggsData = [
   {
     id: "E8",
     name: "Kinder Bueno",
-    image_link: "/image/egg.jpg",
+    image_link: eggImage,
     description: "Brigadeiro de ninho com kinder bueno e nutella",
     bark: "100%",
     price: "0,00",
