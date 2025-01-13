@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
-
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Playwrite_AU_NSW } from "next/font/google";
 
 const inter = Inter({
@@ -27,7 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt_BR" className={`${inter.variable} ${playwrite.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
