@@ -1,10 +1,11 @@
 // src/components/eggsCardBox.tsx
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
+
 interface EggsCardBoxProps {
   egg: {
     id: string;
@@ -22,51 +23,64 @@ interface EggsCardBoxProps {
 
 const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <Card className="w-[90%] bg-secundary md:w-[600px]">
-        <CardHeader className="relative">
-          <CardTitle>{egg.name}</CardTitle>
-          <Button
-            variant="ghost"
-            onClick={onClose}
-            className="absolute right-2 top-2"
-          >
-            <X />
-          </Button>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-4 p-4 md:flex-row">
-          <div className="w-full md:w-1/2">
-            <Image
-              src={egg.image_link}
-              alt={egg.name}
-              width={350}
-              height={350}
-              className="mx-auto rounded-xl"
-              draggable={false}
-            />
-          </div>
-          <div className="flex w-full flex-col gap-3 md:w-1/2">
-            <div className="flex flex-col">
-              <h3 className="text-lg font-bold text-text">Descrição</h3>
-              <p className="text-lg text-text">{egg.description}</p>
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
+      <Card className="h-full w-full rounded-none border-none bg-secundary md:w-[600px]">
+        <Button
+          variant="ghost"
+          onClick={onClose}
+          className="absolute left-4 top-4 z-50 bg-shadow"
+        >
+          <X size={30} className="text-text" />
+        </Button>
+        <CardContent className="flex flex-col gap-4 p-0">
+          <Image
+            src={egg.image_link}
+            alt={egg.name}
+            width={460}
+            height={300}
+            draggable={false}
+            className="object-cover"
+          />
+          <div className="mt-0 flex h-full w-full flex-col gap-9 px-4">
+            <div className="mt-0 flex w-full gap-9 px-4">
+              <div className="flex flex-col gap-4">
+                <CardTitle className="text-2xl font-bold text-text">
+                  {egg.name}
+                </CardTitle>
+                <div className="flex flex-col rounded-t-xl">
+                  <h3 className="font-inter text-lg font-bold text-text">
+                    Descrição
+                  </h3>
+                  <p className="font-inter text-lg text-text">
+                    {egg.description}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-start pt-2">
+                  <p className="text-3xl font-semibold text-text">
+                    <strong className="text-primary">R$ {egg.price}</strong>
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-around">
+                <p className="flex w-[95px] items-center justify-center rounded-md bg-third p-1 px-5 font-inter text-base text-text">
+                  <strong></strong> {egg.type}
+                </p>
+                <p className="flex w-[95px] items-center justify-center rounded-md bg-third p-1 px-5 font-inter text-base text-text">
+                  <strong></strong> {egg.grams}
+                </p>
+                <p className="flex w-[95px] items-center justify-center rounded-md bg-third p-1 px-5 font-inter text-base text-text">
+                  <strong></strong> {egg.bark}
+                </p>
+              </div>
             </div>
-            <p className="text-lg text-text">
-              <strong>Ingredientes:</strong> {egg.ingredients}
-            </p>
-            <div className="flex items-center justify-around">
-              <p className="text-lg text-text bg-third p-1 px-5 rounded-md">
-                <strong></strong> {egg.type}
-              </p>
-              <p className="text-lg text-text bg-third p-1 px-5 rounded-md">
-                <strong></strong> {egg.grams}
-              </p>
-              <p className="text-lg text-text bg-third p-1 px-5 rounded-md">
-                <strong></strong> {egg.bark}
-              </p>
-            </div>
-            <p className="text-xl font-semibold">
-              Preço: <strong className="text-primary">R$ {egg.price}</strong>
-            </p>
+            <section className="flex gap-4 px-4">
+              <Button className="w-full">
+                <Send size={20} className="mr-2" />
+                Encomendar
+              </Button>
+              <Button className="w-full">Teste</Button>
+            </section>
           </div>
         </CardContent>
       </Card>

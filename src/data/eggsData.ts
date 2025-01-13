@@ -9,7 +9,7 @@ const eggsData = [
     bark: "100%",
     price: "0,00",
     grams: "250g",
-    ingredients: "Brigadeiro",
+    ingredients: "Brigadeiro, chocolate",
     type: "Trufado",
   },
   {

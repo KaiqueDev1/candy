@@ -16,7 +16,7 @@ export default {
         secundary: "#2b3035",
         third: "#6c757d",
         text: "#ced4da",
-        shadow: "rgba(0, 0, 0, 0.7)",
+        shadow: "rgba(0, 0, 0, 0.6)",
       },
       fontFamily: {
         inter: ["var(--font-roboto)"],
