@@ -16,6 +16,7 @@ interface EggsCardBoxProps {
     description: string;
     bark: string;
     price: string;
+    priceC?: string;
     grams: string;
     ingredients: string;
     type?: string;
@@ -34,6 +35,9 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
     selectedOption === "de colher" && egg.image_linkC
       ? egg.image_linkC
       : egg.image_link;
+
+  const selectedPrice =
+    selectedOption === "de colher" && egg.priceC ? egg.priceC : egg.price;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
@@ -56,14 +60,14 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
             className="md object-cover"
           />
 
-          <div className="mt-0 flex h-full w-full flex-col gap-9 px-1">
+          <div className="mt-0 flex h-full w-full gap-9 px-1">
             <div className="mt-0 flex w-full flex-col gap-9 px-4">
               <div className="flex flex-col gap-4">
                 <CardTitle className="rounded-xl font-inter text-2xl font-medium text-primary">
                   {egg.name}
                 </CardTitle>
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-3">
                 <h3 className="text-xl font-normal text-text">Opções</h3>
                 <div className="flex gap-2">
                   <Button
@@ -90,6 +94,25 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
                   </Button>
                 </div>
               </div>
+              <div className="flex flex-col">
+                <h3 className="font-inter text-base font-semibold text-primary">
+                  Descrição:
+                </h3>
+                <p className="text-lg font-light text-text">
+                  {egg.description}
+                </p>
+              </div>
+              
+              <div>
+                <h3 className="flex gap-2 text-xl font-normal text-text">
+                  R${" "}
+                  {selectedOption ? (
+                    selectedPrice
+                  ) : (
+                    <div>Selecione uma opção</div>
+                  )}
+                </h3>
+              </div>
               {selectedOption ? (
                 <Order
                   egg={{
@@ -98,7 +121,7 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
                     image_link: selectedImage,
                     description: egg.description,
                     bark: egg.bark,
-                    price: egg.price,
+                    price: selectedPrice,
                     grams: egg.price,
                     ingredients: egg.ingredients,
                     type: selectedOption,

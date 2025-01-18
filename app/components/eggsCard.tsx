@@ -20,6 +20,7 @@ interface EggsCardProps {
   description: string;
   bark: string;
   price: string;
+  priceC: string;
   grams: string;
   ingredients: string;
   type: string;
@@ -77,18 +78,17 @@ const EggsCard: React.FC = () => {
                           className="block w-full rounded-xl"
                         />
                         <div className="flex flex-col gap-2 pt-2">
-                          <h2 className="select-none font-inter text-xl font-bold text-text">
-                            {egg.name}
-                          </h2>
-                          <div className="flex items-center justify-between">
+                          <div className="flex items-center justify-center">
+                            <h2 className="select-none font-inter text-xl font-bold text-text">
+                              {egg.name}
+                            </h2>
+                          </div>
+                          <div className="flex items-center justify-evenly">
                             <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
                               {egg.bark}
                             </p>
                             <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
                               {egg.grams}
-                            </p>
-                            <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
-                              {egg.type}
                             </p>
                           </div>
                           <div className="flex items-center justify-between pt-2">
