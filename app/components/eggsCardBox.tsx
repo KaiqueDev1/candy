@@ -102,14 +102,14 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
                   {egg.description}
                 </p>
               </div>
-              
+
               <div>
                 <h3 className="flex gap-2 text-xl font-normal text-text">
                   R${" "}
                   {selectedOption ? (
                     selectedPrice
                   ) : (
-                    <div>Selecione uma opção</div>
+                    <h3>Selecione uma opção</h3>
                   )}
                 </h3>
               </div>
@@ -129,7 +129,9 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
                   onClose={onClose}
                 />
               ) : (
-                <div>Selecione uma opção</div>
+                <h3 className="font-inter text-base font-semibold text-text">
+                  É necessario selecionar uma opção para encomendar
+                </h3>
               )}
             </div>
           </div>
