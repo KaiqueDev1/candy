@@ -1,16 +1,18 @@
 import eggImage from "../../public/image/egg.jpg";
+import eggImageC from "../../public/image/egg_c.jpeg";
 
 const eggsData = [
   {
     id: "E1",
     name: "Brigadeiro",
     image_link: eggImage,
+    image_linkC: eggImageC,
     description: "Brigadeiro tradicional com casca ao leite",
     bark: "100%",
     price: "0,00",
     grams: "250g",
     ingredients: "Brigadeiro, chocolate",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E2",
@@ -21,7 +23,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Maracujá",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E3",
@@ -32,7 +34,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Beijinho",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E4",
@@ -43,7 +45,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Beijinho",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E5",
@@ -54,7 +56,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Moranguinho",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E6",
@@ -65,7 +67,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Óreo",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E7",
@@ -76,7 +78,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Kit Kat",
-    type: "Trufado",
+    type: "",
   },
   {
     id: "E8",
@@ -87,7 +89,7 @@ const eggsData = [
     price: "0,00",
     grams: "250g",
     ingredients: "Kinder Bueno e nutella",
-    type: "Trufado",
+    type: "",
   },
 ];
 
