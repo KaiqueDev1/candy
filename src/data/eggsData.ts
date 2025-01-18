@@ -1,5 +1,5 @@
 import eggImage from "../../public/image/egg.jpg";
-import eggImageC from "../../public/image/egg_c.jpeg";
+import eggImageC from "../../public/image/egg_c.jpg";
 
 const eggsData = [
   {
