@@ -11,8 +11,8 @@ import eggsData from "@/src/data/eggsData";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import EggsCardBox from "./eggsCardBox";
 import { StaticImageData } from "next/image";
+import EggsCardBox from "./details/eggsCardBox";
 
 interface EggsCardProps {
   id: string;

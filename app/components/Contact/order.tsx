@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
-import Image, { StaticImageData } from "next/image";
+import { StaticImageData } from "next/image";
 interface EggsCardBoxProps {
   egg: {
     id: string;
@@ -23,24 +23,14 @@ const Order: React.FC<EggsCardBoxProps> = ({ egg }) => {
     window.open(url, "_blank");
   };
 
-  const handleInstagramClick = () => {
-    const url = `https://www.instagram.com/kah_candylover`;
-    window.open(url, "_blank");
-  };
   return (
     <section className="flex gap-4 px-4">
-      <Button className="w-full bg-whatsapp" onClick={handleWhatsAppClick}>
+      <Button
+        className="flex w-full items-center justify-center bg-whatsapp font-inter text-base font-semibold text-secundary hover:text-text"
+        onClick={handleWhatsAppClick}
+      >
         <Send size={20} className="mr-2" />
         Encomendar
-      </Button>
-      <Button className="w-full bg-instagram" onClick={handleInstagramClick}>
-        <Image
-          src="/image/instagram.png"
-          alt="Instagram"
-          width={15}
-          height={15}
-        />
-        Instagram
       </Button>
     </section>
   );

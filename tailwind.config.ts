@@ -19,7 +19,7 @@ export default {
         text: "#ffffff",
         shadow: "rgba(0, 0, 0, 0.6)",
         shadow2: "rgba(0, 0, 0, 0.4)",
-        whatsapp: "#204F46",
+        whatsapp: "#25d366",
         instagram: "#C13584",
       },
       fontFamily: {

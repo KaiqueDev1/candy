@@ -1,11 +1,10 @@
-// src/components/eggsCardBox.tsx
 import React, { useState } from "react";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { StaticImageData } from "next/image";
-import Order from "./Contact/order";
+import Order from "../Contact/order";
 
 interface EggsCardBoxProps {
   egg: {
@@ -40,28 +39,25 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
     selectedOption === "de colher" && egg.priceC ? egg.priceC : egg.price;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
+    <div className="fixed inset-0 z-50 flex h-full items-center justify-center bg-background">
       <Card className="h-full w-full rounded-none border-none bg-secundary md:w-[600px]">
         <Button
           variant="ghost"
           onClick={onClose}
-          className="absolute left-4 top-4 z-50 bg-shadow"
+          className="absolute left-4 top-4 z-50 bg-shadow text-text"
         >
-          <X size={30} className="text-text" />
+          <X size={30} />
         </Button>
-
-        <CardContent className="flex flex-col gap-4 p-0">
+        <CardContent className="flex h-full flex-col gap-4 overflow-y-auto p-0">
           <Image
             src={selectedImage}
             alt={egg.name}
             width={460}
-            height={300}
+            height={360}
             draggable={false}
-            className="md object-cover"
           />
-
           <div className="mt-0 flex h-full w-full gap-9 px-1">
-            <div className="mt-0 flex w-full flex-col gap-9 px-4">
+            <div className="mt-0 flex w-full flex-col gap-3 px-4">
               <div className="flex flex-col gap-4">
                 <CardTitle className="rounded-xl font-inter text-2xl font-medium text-primary">
                   {egg.name}
@@ -103,7 +99,7 @@ const EggsCardBox: React.FC<EggsCardBoxProps> = ({ egg, onClose }) => {
                 </p>
               </div>
 
-              <div>
+              <div className="py-3">
                 <h3 className="flex gap-2 text-xl font-normal text-text">
                   R${" "}
                   {selectedOption ? (
