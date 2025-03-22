@@ -8,7 +8,6 @@ interface OrderProps {
   egg: {
     id: string;
     name: string;
-
     description: string;
     price: string;
     grams: string;
