@@ -76,31 +76,31 @@ const EggsCard: React.FC = () => {
                   >
                     <div>
                       <Card className="border bg-background">
-                        <CardContent className="flex w-[180px] flex-col p-0">
+                        <CardContent className="flex flex-col p-0">
                           <Image
                             src={egg.image}
                             alt={egg.name}
                             width={185}
-                            height={185}
+                            height={150}
                             draggable={false}
-                            className="block h-[185px] w-[185px] rounded-lg object-cover"
+                            className="block h-[150px] w-[185px] rounded-b-2xl rounded-t-xl object-cover"
                           />
-                          <div className="flex flex-col gap-2 p-3">
-                            <div className="flex items-center justify-center">
-                              <h2 className="select-none font-inter text-lg font-bold text-text">
+                          <div className="flex flex-col gap-1 p-3">
+                            <div>
+                              <h2 className="select-none font-inter text-lg text-text">
                                 {egg.name}
                               </h2>
                             </div>
-                            <div className="flex items-center justify-between pt-2">
-                              <p className="select-none text-xl font-semibold text-text">
+                            <div className="flex items-center justify-between">
+                              <p className="select-none text-xl font-semibold text-primary">
                                 R$
                                 {egg.price}
                               </p>
                               <Button
-                                className="bg-primary"
+                                className="rounded-full bg-primary p-3"
                                 onClick={() => handleOpenModal(egg)}
                               >
-                                <Plus size={20} className="text-background" />
+                                <Plus size={15} className="text-secundary" />
                               </Button>
                             </div>
                           </div>
