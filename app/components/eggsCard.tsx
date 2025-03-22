@@ -19,6 +19,7 @@ interface EggsProps {
     name: string;
     description: string;
     price: string;
+    chocolate: string;
     grams: string;
     ingredients: string;
     type: string;
@@ -45,7 +46,7 @@ const EggsCard: React.FC = () => {
   // Dividir os dados em grupos de 4 itens para cada carrossel
   const groupedEggs = eggsData.reduce<EggsProps["eggs"][][]>(
     (groups: EggsProps["eggs"][][], egg: EggsProps["eggs"], index: number) => {
-      const groupIndex = Math.floor(index / 4);
+      const groupIndex = Math.floor(index / 3);
       if (!groups[groupIndex]) {
         groups[groupIndex] = [];
       }
@@ -62,16 +63,19 @@ const EggsCard: React.FC = () => {
           group: EggsProps["eggs"][],
           groupIndex: React.Key | null | undefined,
         ) => (
-          <div key={groupIndex} className="mb-6 h-full w-full">
-            <Carousel opts={{ align: "start" }} className="w-full">
-              <CarouselContent className="w-[205px]">
+          <div key={groupIndex} className="mb-6 h-full w-full bg-background">
+            <Carousel
+              opts={{ align: "start" }}
+              className="w-full bg-background"
+            >
+              <CarouselContent className="w-[205px] bg-background">
                 {group.map((egg) => (
                   <CarouselItem
                     key={egg.id}
                     className="flex-center flex justify-center bg-transparent md:basis-1/2 lg:basis-1/3"
                   >
                     <div>
-                      <Card className="border-transparent bg-secundary p-2">
+                      <Card className="border bg-background">
                         <CardContent className="flex w-[180px] flex-col p-0">
                           <Image
                             src={egg.image}
@@ -81,22 +85,15 @@ const EggsCard: React.FC = () => {
                             draggable={false}
                             className="block h-[185px] w-[185px] rounded-lg object-cover"
                           />
-                          <div className="flex flex-col gap-2 pt-2">
+                          <div className="flex flex-col gap-2 p-3">
                             <div className="flex items-center justify-center">
                               <h2 className="select-none font-inter text-lg font-bold text-text">
                                 {egg.name}
                               </h2>
                             </div>
-                            <div className="flex items-center justify-evenly">
-                              <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
-                                {egg.grams}
-                              </p>
-                            </div>
                             <div className="flex items-center justify-between pt-2">
                               <p className="select-none text-xl font-semibold text-text">
-                                <strong className="select-none text-lg font-semibold text-primary">
-                                  R$
-                                </strong>{" "}
+                                R$
                                 {egg.price}
                               </p>
                               <Button

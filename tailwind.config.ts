@@ -4,19 +4,18 @@ import tailwindcssAnimate from "tailwindcss-animate";
 export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "#212529",
+        background: "#ffffff",
         primary: "rgb(242,116,149)",
-        secundary: "#2b3035",
+        secundary: "#EFEFEF",
         third: "#6c757d",
         fourth: "#adb5bd",
-        text: "#ffffff",
+        text: "#212529",
         shadow: "rgba(0, 0, 0, 0.6)",
         shadow2: "rgba(0, 0, 0, 0.4)",
         whatsapp: "#25d366",

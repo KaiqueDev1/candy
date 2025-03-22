@@ -10,6 +10,7 @@ interface OrderProps {
     name: string;
     description: string;
     price: string;
+    chocolate: string;
     grams: string;
     ingredients: string;
     type: string;
@@ -21,7 +22,7 @@ interface OrderProps {
 const EggsCardBox: React.FC<OrderProps> = ({ egg, onClose }) => {
   return (
     <div className="fixed inset-0 z-50 flex h-full items-center justify-center bg-background">
-      <Card className="h-full w-full rounded-none border-none bg-secundary md:w-[600px]">
+      <Card className="h-full w-full rounded-none border-none md:w-[600px]">
         <Button
           variant="ghost"
           onClick={onClose}
@@ -36,14 +37,16 @@ const EggsCardBox: React.FC<OrderProps> = ({ egg, onClose }) => {
             width={460}
             height={360}
             draggable={false}
+            className="rounded-b-3xl"
           />
           <div className="mt-0 flex h-full w-full gap-9 px-1">
             <div className="mt-0 flex w-full flex-col gap-3 px-4">
               <div className="flex flex-col gap-4">
-                <CardTitle className="rounded-xl font-inter text-2xl font-medium text-primary">
+                <CardTitle className="rounded-xl font-inter text-2xl font-medium text-text">
                   {egg.name}
                 </CardTitle>
               </div>
+
               <div className="flex flex-col">
                 <h3 className="font-inter text-base font-semibold text-primary">
                   Descrição:
@@ -52,7 +55,14 @@ const EggsCardBox: React.FC<OrderProps> = ({ egg, onClose }) => {
                   {egg.description}
                 </p>
               </div>
-
+              <div className="flex items-center justify-evenly">
+                <p className="select-none rounded-md bg-background px-3 py-1 text-lg text-text">
+                  {egg.grams}
+                </p>
+                <p className="select-none rounded-md bg-background px-3 py-1 text-lg text-text">
+                  {egg.chocolate}
+                </p>
+              </div>
               <div className="py-3">
                 <h3 className="flex gap-2 text-xl font-normal text-text">
                   R${egg.price}
