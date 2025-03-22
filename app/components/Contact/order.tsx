@@ -1,20 +1,21 @@
 import { Button } from "@/components/ui/button";
 import { Send } from "lucide-react";
 import { StaticImageData } from "next/image";
+
 interface EggsCardBoxProps {
   egg: {
     id: string;
     name: string;
-    image_link: StaticImageData;
     description: string;
-    bark: string;
     price: string;
     grams: string;
     ingredients: string;
     type: string;
+    image: StaticImageData;
+    
   };
-  onClose: () => void;
 }
+
 const Order: React.FC<EggsCardBoxProps> = ({ egg }) => {
   const handleWhatsAppClick = () => {
     const mensagem = `Olá, gostaria de fazer um pedido de um ovo ${egg.type} de ${egg.name}, no valor de R$ ${egg.price}!`;

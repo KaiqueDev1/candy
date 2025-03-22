@@ -8,31 +8,31 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 import eggsData from "@/src/data/eggsData";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import { StaticImageData } from "next/image";
 import EggsCardBox from "./details/eggsCardBox";
 
-interface EggsCardProps {
-  id: string;
-  name: string;
-  description: string;
-  bark: string;
-  price: string;
-  priceC: string;
-  grams: string;
-  ingredients: string;
-  type: string;
-  image_link: StaticImageData;
-  image_linkC?: StaticImageData;
+interface EggsProps {
+  eggs: {
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    grams: string;
+    ingredients: string;
+    type: string;
+    image: StaticImageData;
+  };
 }
 
 const EggsCard: React.FC = () => {
-  const [selectedEgg, setSelectedEgg] = useState<EggsCardProps | null>(null);
+  const [selectedEgg, setSelectedEgg] = useState<EggsProps["eggs"] | null>(
+    null,
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleOpenModal = (egg: EggsCardProps) => {
+  const handleOpenModal = (egg: EggsProps["eggs"]) => {
     setSelectedEgg(egg);
     setIsModalOpen(true);
   };
@@ -43,8 +43,8 @@ const EggsCard: React.FC = () => {
   };
 
   // Dividir os dados em grupos de 4 itens para cada carrossel
-  const groupedEggs = eggsData.reduce<EggsCardProps[][]>(
-    (groups, egg, index) => {
+  const groupedEggs = eggsData.reduce<EggsProps["eggs"][][]>(
+    (groups: EggsProps["eggs"][][], egg: EggsProps["eggs"], index: number) => {
       const groupIndex = Math.floor(index / 4);
       if (!groups[groupIndex]) {
         groups[groupIndex] = [];
@@ -57,67 +57,75 @@ const EggsCard: React.FC = () => {
 
   return (
     <section className="flex w-full flex-col bg-background pl-2 pt-5">
-      {groupedEggs.map((group, groupIndex) => (
-        <div key={groupIndex} className="mb-6 h-full w-full">
-          <Carousel opts={{ align: "start" }} className="w-full">
-            <CarouselContent className="w-[205px]">
-              {group.map((egg) => (
-                <CarouselItem
-                  key={egg.id}
-                  className="flex-center flex justify-center bg-transparent md:basis-1/2 lg:basis-1/3"
-                >
-                  <div>
-                    <Card className="border-transparent bg-secundary p-2">
-                      <CardContent className="flex w-[180px] flex-col p-0">
-                        <Image
-                          src={egg.image_link}
-                          alt={egg.name}
-                          width={155}
-                          height={155}
-                          draggable={false}
-                          className="block w-full rounded-xl"
-                        />
-                        <div className="flex flex-col gap-2 pt-2">
-                          <div className="flex items-center justify-center">
-                            <h2 className="select-none font-inter text-xl font-bold text-text">
-                              {egg.name}
-                            </h2>
+      {groupedEggs.map(
+        (
+          group: EggsProps["eggs"][],
+          groupIndex: React.Key | null | undefined,
+        ) => (
+          <div key={groupIndex} className="mb-6 h-full w-full">
+            <Carousel opts={{ align: "start" }} className="w-full">
+              <CarouselContent className="w-[205px]">
+                {group.map((egg) => (
+                  <CarouselItem
+                    key={egg.id}
+                    className="flex-center flex justify-center bg-transparent md:basis-1/2 lg:basis-1/3"
+                  >
+                    <div>
+                      <Card className="border-transparent bg-secundary p-2">
+                        <CardContent className="flex w-[180px] flex-col p-0">
+                          <Image
+                            src={egg.image}
+                            alt={egg.name}
+                            width={185}
+                            height={185}
+                            draggable={false}
+                            className="block h-[185px] w-[185px] rounded-lg object-cover"
+                          />
+                          <div className="flex flex-col gap-2 pt-2">
+                            <div className="flex items-center justify-center">
+                              <h2 className="select-none font-inter text-lg font-bold text-text">
+                                {egg.name}
+                              </h2>
+                            </div>
+                            <div className="flex items-center justify-evenly">
+                              <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
+                                {egg.grams}
+                              </p>
+                            </div>
+                            <div className="flex items-center justify-between pt-2">
+                              <p className="select-none text-xl font-semibold text-text">
+                                <strong className="select-none text-lg font-semibold text-primary">
+                                  R$
+                                </strong>{" "}
+                                {egg.price}
+                              </p>
+                              <Button
+                                className="bg-primary"
+                                onClick={() => handleOpenModal(egg)}
+                              >
+                                <Plus size={20} className="text-background" />
+                              </Button>
+                            </div>
                           </div>
-                          <div className="flex items-center justify-evenly">
-                            <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
-                              {egg.bark}
-                            </p>
-                            <p className="select-none rounded-md bg-third px-3 py-1 text-xs text-text">
-                              {egg.grams}
-                            </p>
-                          </div>
-                          <div className="flex items-center justify-between pt-2">
-                            <p className="select-none text-xl font-semibold text-text">
-                              <strong className="select-none text-lg font-semibold text-primary">
-                                R$
-                              </strong>{" "}
-                              {egg.price}
-                            </p>
-                            <Button
-                              className="bg-primary"
-                              onClick={() => handleOpenModal(egg)}
-                            >
-                              <Plus size={20} className="text-background" />
-                            </Button>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-          </Carousel>
-        </div>
-      ))}
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        ),
+      )}
 
       {isModalOpen && selectedEgg && (
-        <EggsCardBox egg={selectedEgg} onClose={handleCloseModal} />
+        <EggsCardBox
+          egg={{
+            ...selectedEgg,
+            image: selectedEgg.image,
+          }}
+          onClose={handleCloseModal}
+        />
       )}
     </section>
   );
