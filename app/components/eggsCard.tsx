@@ -83,7 +83,7 @@ const EggsCard: React.FC = () => {
                             width={185}
                             height={150}
                             draggable={false}
-                            className="block h-[150px] w-[185px] rounded-b-2xl rounded-t-xl object-cover xl:h-[250px] xl:w-[300px]"
+                            className="block h-[150px] w-[185px] select-none rounded-b-2xl rounded-t-xl object-cover xl:h-[250px] xl:w-[300px]"
                           />
                           <div className="flex flex-col gap-1 p-3">
                             <div>
@@ -100,7 +100,10 @@ const EggsCard: React.FC = () => {
                                 className="rounded-full bg-primary p-3"
                                 onClick={() => handleOpenModal(egg)}
                               >
-                                <Plus size={15} className="text-secundary" />
+                                <Plus
+                                  size={15}
+                                  className="select-none text-secundary"
+                                />
                               </Button>
                             </div>
                           </div>

@@ -31,21 +31,21 @@ const EggsCardBox: React.FC<OrderProps> = ({ egg, onClose }) => {
             width={460}
             height={360}
             draggable={false}
-            className="rounded-3xl p-2"
+            className="select-none rounded-3xl p-2"
           />
           <div className="mt-0 flex h-full w-full gap-9 px-1">
             <div className="mt-0 flex w-full flex-col gap-3 px-4">
               <div className="mb-4 flex items-center justify-between gap-4">
-                <CardTitle className="rounded-xl font-inter text-2xl font-semibold text-text">
+                <CardTitle className="select-none rounded-xl font-inter text-2xl font-semibold text-text">
                   {egg.name}
                 </CardTitle>
-                <h3 className="flex gap-2 font-playwrite text-base font-bold text-primary">
+                <h3 className="flex select-none gap-2 font-playwrite text-base font-bold text-primary">
                   R${egg.price}
                 </h3>
               </div>
 
               <div className="flex flex-col">
-                <p className="font-poppins text-lg font-normal text-text">
+                <p className="select-none font-poppins text-lg font-normal text-text">
                   {egg.description}
                 </p>
               </div>
