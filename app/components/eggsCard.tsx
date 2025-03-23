@@ -68,7 +68,7 @@ const EggsCard: React.FC = () => {
               opts={{ align: "start" }}
               className="w-full bg-background"
             >
-              <CarouselContent className="w-[205px] bg-background">
+              <CarouselContent className="w-[205px] bg-background md:w-full lg:w-full xl:w-full 2xl:w-full">
                 {group.map((egg) => (
                   <CarouselItem
                     key={egg.id}
@@ -83,7 +83,7 @@ const EggsCard: React.FC = () => {
                             width={185}
                             height={150}
                             draggable={false}
-                            className="block h-[150px] w-[185px] rounded-b-2xl rounded-t-xl object-cover"
+                            className="block h-[150px] w-[185px] rounded-b-2xl rounded-t-xl object-cover xl:h-[250px] xl:w-[300px]"
                           />
                           <div className="flex flex-col gap-1 p-3">
                             <div>
