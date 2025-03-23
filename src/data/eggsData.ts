@@ -46,7 +46,7 @@ const eggsData = [
     id: "4",
     name: "Oreo",
     description:
-      "Casquinha de chocolate ao leite, recheio de Oreo e trabalho de bico na decoração. ",
+      "Casquinha de chocolate ao leite ou chocolate branco, recheio de Oreo e trabalho de bico na decoração. ",
     price: "75,00",
     chocolate: "100%",
     grams: "250g",
@@ -58,7 +58,7 @@ const eggsData = [
     id: "5",
     name: "Ouro branco",
     description:
-      "Casquinha de chocolate ao leite, recheio de Ouro branco e trabalho de bico na decoração. ",
+      "Casquinha de chocolate ao leite ou chocolate branco, recheio de Ouro branco e trabalho de bico na decoração. ",
     price: "80,00",
     chocolate: "100%",
     grams: "250g",
