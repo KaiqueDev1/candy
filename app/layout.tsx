@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Playwrite_AU_NSW, Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -43,6 +44,7 @@ export default function RootLayout({
       <body>
         {children}
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
